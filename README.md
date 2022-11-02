@@ -31,21 +31,35 @@ Prerequisite: sphnix needs python 3.6+, if you have python 2 installed, it won't
 
 Installation:
 
+```
 $ apt install python3-sphinx
 $ make html
+```
 
 If the command above returned an error, try to install a newer version of sphinx, the installed version is 1.6.7.
 
-$ pip install "Sphinx=2.4.3"
+```
+# Remove existing old version
+$ sudo apt remove python3-sphinx
+
+# Install pip
+$ sudo apt install python3-pip
+
+# Install new version via pip
+$ pip install Sphinx
 $ python -m pip list | grep Sphinx
+
+# Run the build
 $ make html
+```
 
 If the command above returned a module not found error for pip install.
 
+```
 $ pip install sphinx_rtd_theme
 $ python -m pip list | grep sphinx
 $ make html
-
+```
 The command above should build the documentation in the build/ folder.
 
 Note: everytime `make html` is executed, before execure `rm -R build` to force updating all the files.
